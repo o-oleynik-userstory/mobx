@@ -1,0 +1,4 @@
+/public/**
+/www/**
+/coverage/**
+**/*.min.js
