@@ -1,4 +1,4 @@
-import {action, autorun, computed, makeObservable, observable, runInAction} from 'mobx';
+import {action, autorun, computed, makeObservable, observable, reaction, runInAction} from 'mobx';
 import {CounterApi} from 'modules/cars/api';
 
 /**
@@ -136,14 +136,30 @@ class CarsStore {
 
 const carsStore = new CarsStore();
 
-autorun((value) => {
-    console.log('<-----autorun');
-    console.log('value');
-    console.log(value);
-    console.log('carsStore.value');
-    console.log(carsStore.value);
-    console.log('----->autorun');
-});
+// const disposer = autorun((_reaction) => {
+//     console.log('<-----autorun');
+//     console.log('autorun reaction');
+//     console.log(_reaction);
+//     console.log('carsStore.value');
+//     console.log(carsStore.value);
+//     console.log('----->autorun');
+// });
+
+const disposer = reaction(
+    () => carsStore.status,
+    (currentValue, previousValue, _reaction) => {
+        console.log('<-----reaction');
+        console.log('currentValue');
+        console.log(currentValue);
+        console.log('previousValue');
+        console.log(previousValue);
+        console.log('reaction');
+        console.log(_reaction);
+        console.log('----->reaction');
+    }
+);
+
+// disposer();
 
 export default carsStore;
 
