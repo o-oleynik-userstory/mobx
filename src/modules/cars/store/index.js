@@ -1,4 +1,4 @@
-import {action, makeObservable, observable, runInAction} from 'mobx';
+import {action, computed, makeObservable, observable, runInAction} from 'mobx';
 import {CounterApi} from 'modules/cars/api';
 
 /**
@@ -15,6 +15,7 @@ class CarsStore {
             asyncDecrease: action,
             asyncIncrease: action,
             decrease: action,
+            doubleValue: computed,
             increase: action,
             status: observable,
             value: observable,
@@ -119,6 +120,14 @@ class CarsStore {
     decrease = () => {
         this.value -= 1;
     };
+
+    /**
+     * Получить value * 2
+     */
+    get doubleValue() {
+        console.log('get doubleValue');
+        return this.value * 2;
+    }
 
     increase = () => {
         this.value += 1;
