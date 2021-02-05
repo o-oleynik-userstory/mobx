@@ -1,3 +1,4 @@
+import {Cars} from 'modules/cars/components/Cars';
 import {Products} from 'modules/products/components/Products';
 import {Users} from 'modules/users/components/Users';
 import React from 'react';
@@ -28,6 +29,9 @@ class App extends React.Component {
                     <Products />
                     <div className="layout__container">
                         <Users />
+                    </div>
+                    <div className="layout__container">
+                        <Cars />
                     </div>
                 </div>
             </div>
