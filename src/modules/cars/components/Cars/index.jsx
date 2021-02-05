@@ -1,6 +1,6 @@
 import {observer} from 'mobx-react';
 import {CarsSum} from 'modules/cars/components/CarsSum';
-import {carsStore} from 'modules/cars/store';
+import carsStore from 'modules/cars/store';
 import React from 'react';
 import './style.less';
 

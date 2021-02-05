@@ -1,5 +1,5 @@
 import {observer} from 'mobx-react';
-import {carsStore} from 'modules/cars/store';
+import carsStore from 'modules/cars/store';
 import React, {useCallback} from 'react';
 import './style.less';
 

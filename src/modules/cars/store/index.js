@@ -1,4 +1,4 @@
-import {action, computed, makeObservable, observable, runInAction} from 'mobx';
+import {action, autorun, computed, makeObservable, observable, runInAction} from 'mobx';
 import {CounterApi} from 'modules/cars/api';
 
 /**
@@ -134,7 +134,18 @@ class CarsStore {
     };
 }
 
-export const carsStore = new CarsStore();
+const carsStore = new CarsStore();
+
+autorun((value) => {
+    console.log('<-----autorun');
+    console.log('value');
+    console.log(value);
+    console.log('carsStore.value');
+    console.log(carsStore.value);
+    console.log('----->autorun');
+});
+
+export default carsStore;
 
 // const carsStoreInstance = new CarsStore();
 //
