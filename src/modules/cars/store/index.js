@@ -1,4 +1,4 @@
-import {action, makeAutoObservable, runInAction} from 'mobx';
+import {action, makeObservable, observable, runInAction} from 'mobx';
 import {CounterApi} from 'modules/cars/api';
 
 /**
@@ -9,7 +9,16 @@ class CarsStore {
      * Конструктор
      */
     constructor() {
-        makeAutoObservable(this);
+        makeObservable(this, {
+            asyncAwaitDecrease: action,
+            asyncAwaitIncrease: action,
+            asyncDecrease: action,
+            asyncIncrease: action,
+            decrease: action,
+            increase: action,
+            status: observable,
+            value: observable,
+        });
     }
 
     status = 'idle';
