@@ -1,0 +1,40 @@
+@import (reference) 'src/styles/mixins';
+
+.cats {
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    text-align: center;
+
+    &__button {
+        align-items: center;
+        background-color: white;
+        border: 1px solid gray;
+        color: black;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        width: 100px;
+    }
+
+    &__content {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__content-area {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__sum-container {
+        margin-top: 20px;
+    }
+
+    &__value {
+        padding: 0 25px;
+    }
+}
