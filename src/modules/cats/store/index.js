@@ -9,21 +9,13 @@ class CatsStore {
      * Конструктор
      */
     constructor() {
-        makeObservable(this, {
-            asyncAwaitDecrease: action,
-            asyncAwaitIncrease: action,
-            asyncDecrease: action,
-            asyncIncrease: action,
-            decrease: action,
-            increase: action,
-            status: observable,
-            value: observable,
-        });
+        makeObservable(this);
     }
 
-    status = 'idle';
-    value = 0;
+    @observable status = 'idle';
+    @observable value = 0;
 
+    @action
     asyncDecrease = () => {
         this.status = 'pending';
 
@@ -47,6 +39,7 @@ class CatsStore {
             );
     };
 
+    @action
     asyncIncrease = () => {
         this.status = 'pending';
 
@@ -70,6 +63,7 @@ class CatsStore {
             );
     };
 
+    @action
     asyncAwaitDecrease = async () => {
         this.status = 'pending';
 
@@ -93,6 +87,7 @@ class CatsStore {
         }
     };
 
+    @action
     asyncAwaitIncrease = async () => {
         this.status = 'pending';
 
@@ -116,10 +111,12 @@ class CatsStore {
         }
     };
 
+    @action
     decrease = () => {
         this.value -= 1;
     };
 
+    @action
     increase = () => {
         this.value += 1;
     };
