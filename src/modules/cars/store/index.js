@@ -126,3 +126,16 @@ class CarsStore {
 }
 
 export const carsStore = new CarsStore();
+
+// const carsStoreInstance = new CarsStore();
+//
+// export const carsStore = makeObservable(carsStoreInstance, {
+//     asyncAwaitDecrease: action,
+//     asyncAwaitIncrease: action,
+//     asyncDecrease: action,
+//     asyncIncrease: action,
+//     decrease: action,
+//     increase: action,
+//     status: observable,
+//     value: observable,
+// });
